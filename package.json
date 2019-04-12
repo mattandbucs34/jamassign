@@ -1,0 +1,11 @@
+{
+  "name": "jamassign",
+  "version": "1.0.0",
+  "description": "assigning application",
+  "main": "index.js",
+  "scripts": {
+    "test": "export NODE_ENV=test|| set NODE_ENV=test&& jasmine"
+  },
+  "author": "Matt Johnson",
+  "license": "ISC"
+}
