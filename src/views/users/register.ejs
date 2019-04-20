@@ -6,7 +6,8 @@
 <body>
   <% include ../static/partials/navbar.ejs %>
 
-  <main class="registration-form">
+  <main class="user-form">
+    <% include ../static/partials/messages.ejs %>
     <h1 class="text-center">Registration</h1>
     <hr>
     <form action="/users" method="POST" >
@@ -32,6 +33,6 @@
       <button type="submit" class="btn btn-primary">Register</button>
     </form>
   </main>
-  
+  <% include ../static/partials/baseScripts.ejs %>
 </body>
 </html>

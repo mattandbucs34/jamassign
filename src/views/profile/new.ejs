@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../static/partials/head.ejs %>
+</head>
+<body>
+  <% include ../static/partials/navbar.ejs %>
+
+  <main class="user-form">
+    <% include ../static/partials/messages.ejs %>
+
+    <h1>Enter Profile Information</h1>
+    <hr>
+    <form action="/profile/create" method="POST">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" name="firstName" aria-describedby="firstNameHelp" placeholder="First Name">
+      </div>
+      <div class="form-group">
+        <label for="midInitial">Middle Initial:</label>
+        <input type="text" size="2" class="form-control" name="midInitial" aria-describedby="midInitialHelp" placeholder="M.I.">
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" name="lastName" aria-describedby="firstNameHelp" placeholder="Last Name">
+      </div>
+      <div class="form-group">
+        <label for="address1">Address 1:</label>
+        <input type="text"class="form-control" name="address1" aria-describedby="address1Help" placeholder="Street Address">
+      </div>
+      <div class="form-group">
+        <label for="address2">Address 2:<small class="text-muted">(optional)</small></label>
+        <input type="text" class="form-control" name="address2" aria-describedby="address2Help">
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" class="form-control" name="city" aria-describedby="cityHelp" placeholder="Enter City">
+      </div>
+      <div class="form-group">
+        <label for="userState">State:</label>
+        <select name="userState" id="userState" class="form-control" aria-describedby="State">
+            <option value="AL">AL</option>
+            <option value="AK">AK</option>
+            <option value="AR">AR</option>	
+            <option value="AZ">AZ</option>
+            <option value="CA">CA</option>
+            <option value="CO">CO</option>
+            <option value="CT">CT</option>
+            <option value="DC">DC</option>
+            <option value="DE">DE</option>
+            <option value="FL">FL</option>
+            <option value="GA">GA</option>
+            <option value="HI">HI</option>
+            <option value="IA">IA</option>	
+            <option value="ID">ID</option>
+            <option value="IL">IL</option>
+            <option value="IN">IN</option>
+            <option value="KS">KS</option>
+            <option value="KY">KY</option>
+            <option value="LA">LA</option>
+            <option value="MA">MA</option>
+            <option value="MD">MD</option>
+            <option value="ME">ME</option>
+            <option value="MI">MI</option>
+            <option value="MN">MN</option>
+            <option value="MO">MO</option>	
+            <option value="MS">MS</option>
+            <option value="MT">MT</option>
+            <option value="NC">NC</option>	
+            <option value="NE">NE</option>
+            <option value="NH">NH</option>
+            <option value="NJ">NJ</option>
+            <option value="NM">NM</option>			
+            <option value="NV">NV</option>
+            <option value="NY">NY</option>
+            <option value="ND">ND</option>
+            <option value="OH">OH</option>
+            <option value="OK">OK</option>
+            <option value="OR">OR</option>
+            <option value="PA">PA</option>
+            <option value="RI">RI</option>
+            <option value="SC">SC</option>
+            <option value="SD">SD</option>
+            <option value="TN">TN</option>
+            <option value="TX">TX</option>
+            <option value="UT">UT</option>
+            <option value="VT">VT</option>
+            <option value="VA">VA</option>
+            <option value="WA">WA</option>
+            <option value="WI">WI</option>	
+            <option value="WV">WV</option>
+            <option value="WY">WY</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="zipCode">Zip:</label>
+        <input type="number" class="form-control" name="zipCode" pattern="\d{5}([\-]\d{4})?" aria-describedby="Zip Code" placeholder="#####">
+      </div>
+      <div class="form-group">
+        <label for="homeNumber">Home Phone:</label>
+        <input type="tel" class="form-control" name="homeNumber" aria-describedby="Home Phone">
+      </div>
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Phone:</label>
+        <input type="tel" class="form-control" name="mobileNumber" aria-describedby="Mobile Phone">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </main>
+  <% include ../static/partials/baseScripts.ejs %>
+</body>
+</html>
