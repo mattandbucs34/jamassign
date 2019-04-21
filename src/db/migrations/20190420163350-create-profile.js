@@ -45,6 +45,16 @@ module.exports = {
       mobilephone: {
         type: Sequelize.STRING
       },
+      userId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: "Users",
+          key: "id",
+          as: "userId"
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

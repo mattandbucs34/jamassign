@@ -11,6 +11,10 @@ nav {
   background-color: navy;
 }
 
+hr {
+  height: 20px;
+}
+
 .navbar-brand {
   font-size: 24px;
   font-weight: bold;
@@ -34,7 +38,7 @@ nav {
 }
 
 .user-form {
-  width: 30%;
+  width: 50%;
   margin: auto;
   margin-top: 54px;
   padding: 15px;

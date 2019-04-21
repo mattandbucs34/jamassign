@@ -3,25 +3,43 @@ const User = require("../models").User;
 const Authorizer = require("../../policies/application");
 
 module.exports = {
-  create(profile, callback) {
+  create(newProfile, callback) {
     return Profile.create({
-      firstname: req.body.firstName,
-      middleinitial: req.body.midInitial,
-      lastname: req.body.lastName,
-      address1: req.body.address1,
-      address2: req.body.address2,
-      city: req.body.city,
-      state: req.body.userState,
-      zipcode: req.body.zipCode,
-      homenumber: req.body.homeNumber,
-      mobilenumber: req.body.mobileNumber
+      firstname: newProfile.firstname,
+      middleinitial: newProfile.middleinitial,
+      lastname: newProfile.lastname,
+      address1: newProfile.address1,
+      address2: newProfile.address2,
+      city: newProfile.city,
+      state: newProfile.state,
+      zipcode: newProfile.zipcode,
+      homephone: newProfile.homephone,
+      mobilephone: newProfile.mobilephone,
+      userId: newProfile.userId
     })
-    .then((user) => {
-      callback(null, user);
+    .then((profile) => {
+      callback(null, profile);
     })
     .catch((err) => {
       console.log(err);
       callback(err);
     })
+  },
+
+  getProfile(req, callback) {
+    return Profile.findOne({
+      where: {
+        userId: req.user.id
+      },
+      include: [{
+        model: User
+      }]
+    })
+    .then((profile) => {
+      callback(null, profile);
+    })
+    .catch((err) => {
+      callback(err);
+    });
   }
 }

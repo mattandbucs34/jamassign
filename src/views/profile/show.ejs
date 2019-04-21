@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../static/partials/head.ejs %>
+</head>
+<body>
+  <% include ../static/partials/navbar.ejs %>
+
+  <main class="user-form">
+    <% include ../static/partials/messages.ejs %>
+    <% if(currentUser) { %>
+      <h1><%- profile.firstname %>'s Profile Information</h1>
+    <% } %>
+    <hr>
+    <form action="/profile/create" method="POST">
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input type="text" class="form-control" name="firstName" placeholder="<%- profile.firstname %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="midInitial">Middle Initial:</label>
+        <input type="text" class="form-control" name="midInitial" placeholder="<%- profile.middleinitial %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input type="text" class="form-control" name="lastName" placeholder="<%- profile.lastname %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="address1">Address 1:</label>
+        <input type="text"class="form-control" name="address1" placeholder="<%- profile.address1 %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="address2">Address 2:<small class="text-muted">(optional)</small></label>
+        <input type="text" class="form-control" name="address2" placeholder="<%- profile.address2 %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" class="form-control" name="city" placeholder="<%- profile.city %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="userState">State:</label>
+        <input name="userState" id="userState" class="form-control" placeholder="<%- profile.state %>" readonly>            
+      </div>
+      <div class="form-group">
+        <label for="zipCode">Zip:</label>
+        <input type="number" class="form-control" name="zipCode" placeholder="<%- profile.zipcode %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="homeNumber">Home Phone:</label>
+        <input type="tel" class="form-control" name="homeNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="<%- profile.homephone %>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="mobileNumber">Mobile Phone:</label>
+        <input type="tel" class="form-control" name="mobileNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="<%- profile.mobilephone %>" readonly>
+      </div>
+      <button type="submit" class="btn btn-danger">Edit</button>
+    </form>
+  </main>
+  <% include ../static/partials/baseScripts.ejs %>
+</body>
+</html>

@@ -22,31 +22,33 @@ module.exports = {
         res.redirect("/users/register");
       }else {
         passport.authenticate("local")(req, res, () => {
-          req.flash("notice", "You've successfully registered!");
+          req.flash("success", "You've successfully registered!");
           res.redirect("/profile/new");
         });
       }
     });
   },
 
-  profile(req, res, next) {
-    res.render("users/profile")
+  signInForm(req, res, next) {
+    res.render("users/sign-in");
   },
 
-  addProfile(req, res, next) {
-    let newProfile = {
-      firstname: req.body.firstName,
-      middleinitial: req.body.midInitial,
-      lastname: req.body.lastName,
-      address1: req.body.address1,
-      address2: req.body.address2,
-      city: req.body.city,
-      state: req.body.userState,
-      zipcode: req.body.zipCode,
-      homephone: req.body.homePhone,
-      mobilephone: req.body.mobilePhone
-    }
+  signIn(req, res, next) {
+    passport.authenticate("local")(req, res, () => {
+      if(!req.user) {
+        req.flash("notice", "Sign in failed. Please try again");
+        res.redirect("users/sign-in");
+      }else {
+        //console.log("success: sign in successful");
+        req.flash("success", "You have successfully signed in!");
+        res.redirect("/announcements");
+      }
+    });
+  },
 
-    
+  signOut(req, res, next) {
+    req.logout();
+    req.flash("success", "You have been logged out");
+    res.redirect("/");
   }
 }

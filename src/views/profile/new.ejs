@@ -98,11 +98,11 @@
       </div>
       <div class="form-group">
         <label for="homeNumber">Home Phone:</label>
-        <input type="tel" class="form-control" name="homeNumber" aria-describedby="Home Phone">
+        <input type="tel" class="form-control" name="homeNumber" pattern="[0-9{3}-[0-9]{3}-[0-9]{4}" aria-describedby="Home Phone">
       </div>
       <div class="form-group">
         <label for="mobileNumber">Mobile Phone:</label>
-        <input type="tel" class="form-control" name="mobileNumber" aria-describedby="Mobile Phone">
+        <input type="tel" class="form-control" name="mobileNumber" pattern="[0-9{3}-[0-9]{3}-[0-9]{4}" aria-describedby="Mobile Phone">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

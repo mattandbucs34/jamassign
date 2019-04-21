@@ -20,9 +20,5 @@ module.exports = {
     })
   },
 
-  createProfile(newProfile, callback) {
-    return Profile.create({
-      
-    })
-  }
+  
 }

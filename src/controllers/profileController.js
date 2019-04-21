@@ -23,8 +23,9 @@ module.exports = {
       city: req.body.city.trim(),
       state: req.body.userState,
       zipcode: req.body.zipCode,
-      homenumber: req.body.homeNumber,
-      mobilenumber: req.body.mobileNumber
+      homephone: req.body.homeNumber,
+      mobilephone: req.body.mobileNumber,
+      userId: req.user.id
     }
 
     profileQueries.create(userProfile, (err, profile) => {
@@ -33,7 +34,17 @@ module.exports = {
         res.redirect("/profile/new");
       }else {
         req.flash("success", "Your profile is set up and you are now a member!");
-        res.redirect("/");
+        res.redirect("/announcements");
+      }
+    });
+  },
+
+  show(req, res, next) {
+    profileQueries.getProfile(req, (err, profile) => {
+      if(err || profile === null) {
+        res.redirect(404, "/announcements");
+      }else {
+        res.render("profile/show", {profile});
       }
     });
   }

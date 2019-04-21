@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <% include ./partials/head.ejs %>
+    <% include ../static/partials/head.ejs %>
   </head>
   <body>
 
     <!-- Navigation -->
-    <% include ./partials/navbar.ejs %>
+    <% include ../static/partials/navbar.ejs %>
 
     <!-- Page Content -->
     <main class="container">
+      
       <!-- Jumbotron Header -->
       <header class="jumbotron my-4 text-center">
-        <h1 class="display-3 welcome">Welcome to JAM Sports Officials</h1>
+        <% include ../static/partials/messages.ejs %>
+        <h1 class="display-3 welcome">Announcements Page</h1>
         <p class="lead">News and Information for Sports Officials</p>
-        <a href="/users/register" class="btn btn-primary btn-lg">Register</a>
-        <a href="/users/sign-in" class="btn btn-outline-primary btn-lg">Sign In</a>
       </header>
 
       <!-- Page Features -->
@@ -42,6 +42,6 @@
     </main>
     <!-- end of container -->
 
-    <% include ./partials/baseScripts.ejs %>
+    <% include ../static/partials/baseScripts.ejs %>
   </body>
 </html>
