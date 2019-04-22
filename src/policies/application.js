@@ -5,6 +5,10 @@ module.exports = class ApplicationPolicy {
     this.collaborator = collaborator;
   }
 
+  _isOwner() {
+    return this.record && (this.record.userId == this.user.id);
+  }
+
   new() {
     return this.user != null;
   }
@@ -18,7 +22,7 @@ module.exports = class ApplicationPolicy {
   }
 
   edit() {
-    return this.new() &&  this.record && (this._isOwner() || this._isPremium());
+    return this.new() && this.record && this._isOwner();
   }
 
   update() {

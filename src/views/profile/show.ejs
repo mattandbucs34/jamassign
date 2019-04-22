@@ -12,7 +12,7 @@
       <h1><%- profile.firstname %>'s Profile Information</h1>
     <% } %>
     <hr>
-    <form action="/profile/create" method="POST">
+    
       <div class="form-group">
         <label for="firstName">First Name:</label>
         <input type="text" class="form-control" name="firstName" placeholder="<%- profile.firstname %>" readonly>
@@ -53,8 +53,8 @@
         <label for="mobileNumber">Mobile Phone:</label>
         <input type="tel" class="form-control" name="mobileNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="<%- profile.mobilephone %>" readonly>
       </div>
-      <button type="submit" class="btn btn-danger">Edit</button>
-    </form>
+      <a href="/profile/edit" class="btn btn-danger">Edit</a>
+    
   </main>
   <% include ../static/partials/baseScripts.ejs %>
 </body>

@@ -40,11 +40,46 @@ module.exports = {
   },
 
   show(req, res, next) {
+    const authorized = new Authorizer(req.user).show();
+
+    if(authorized) {
+      profileQueries.getProfile(req, (err, profile) => {
+        if(err || profile === null) {
+          res.redirect(404, "/announcements");
+        }else {
+          res.render("profile/show", {profile});
+        }
+      });
+    }else {
+      req.flash("notice", "You are not the correct user to make these changes");
+      res.redirect("profile/show");
+    }
+  },
+
+  edit(req, res, next) {
     profileQueries.getProfile(req, (err, profile) => {
       if(err || profile === null) {
-        res.redirect(404, "/announcements");
+        res.redirect(404, "/");
       }else {
-        res.render("profile/show", {profile});
+        const authorized = new Authorizer(req.user, profile).edit();
+
+        if(authorized) {
+          //req.flash("error", "You are about to edit your profile.\nPlease proceed with caution!");
+          res.render("profile/edit", {profile});
+        }else {
+          req.flash("notice", "You need to ask permission to do that!");
+          res.render("profile/show", {profile});
+        }
+      }
+    });    
+  },
+
+  update(req, res, next) {
+    profileQueries.updateProfile(req, req.body, (err, profile) => {
+      if(err || profile === null) {
+        res.redirect(404, "/profile/edit");
+      }else {
+        res.redirect("/profile/show");
       }
     });
   }

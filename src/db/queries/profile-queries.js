@@ -41,5 +41,36 @@ module.exports = {
     .catch((err) => {
       callback(err);
     });
+  },
+
+  updateProfile(req, updatedProfile, callback) {
+    return Profile.findOne({
+      where: {
+        userId: req.user.id
+      }
+    })
+    .then((profile) => {
+      if(!profile) {
+        return callback("Profile not found!");
+      }
+
+      const authorized = new Authorizer(req.user, profile).update();
+      
+      if(authorized) {
+        profile.update(updatedProfile, {
+          fields: Object.keys(updatedProfile)
+        })
+        .then(() => {
+          callback(null, profile);
+        })
+        .catch((err) => {
+          console.log(err);
+          callback(err);
+        });
+      }else {
+        req.flash("notice", "You are not authorized to do that!");
+        callback("Forbidden");
+      }
+    });
   }
 }

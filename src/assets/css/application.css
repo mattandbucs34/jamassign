@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Sancreek');
+
 body {
-  padding-top: 37px;
+  padding-top: 54px;
   padding-bottom: 50px;
   background-image: url("../stabilized_burma_red_infield_mix1.jpeg");
   background-position: center;
@@ -15,26 +17,50 @@ hr {
   height: 20px;
 }
 
+footer {
+  padding: 5px;
+  display: block;
+  height: 50px;
+  background-color: navy;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
 .navbar-brand {
-  font-size: 24px;
-  font-weight: bold;
+  font-family: 'Sancreek', cursive;
+  font-size: 34px;
+  /* font-weight: bold; */
+  letter-spacing: 2px;
+  text-shadow: 0px 0px 15px #b0e0e6;
 }
 
 .jumbotron {
   background-color: #b0e0e6;
+  box-shadow: 0px 0px 20px 2px black;
+  padding: 2rem 2rem;
 }
 
+.news {
+  padding: 15px;
+  background-color: blanchedalmond;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  max-height: 75vh;
+}
+.card {
+  box-shadow: 0px 0px 15px 2px black;
+}
 .welcome {
+  font-family: 'Fredericka the Great', cursive;
   color: white;
+  /* font-weight: bold; */
+  text-shadow: 0px 0px 3px grey, 0px 0px 5px navy;
 }
 
 .lead {
   color: navy;
-}
-
-.welcome {
-  font-weight: bold;
-  text-shadow: 0px 0px 3px grey, 0px 0px 5px navy;
 }
 
 .user-form {
@@ -45,4 +71,20 @@ hr {
   border-radius: 5px;
   box-shadow: 0px 5px 15px #b0e0e6, 0px 6px 15px #b0e0e6;
   background-color: white;
+}
+
+.footer-text {
+  color: rgba(255,255,255,.5);
+}
+
+/*Media Queries */
+
+@media(max-width: 992px){
+  .jumbotron {
+    padding: 1rem 2rem;
+  }
+
+  .welcome {
+    font-size: 2.5rem;
+  }
 }

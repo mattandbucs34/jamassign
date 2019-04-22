@@ -14,8 +14,10 @@
       <header class="jumbotron my-4 text-center">
         <h1 class="display-3 welcome">Welcome to JAM Sports Officials</h1>
         <p class="lead">News and Information for Sports Officials</p>
-        <a href="/users/register" class="btn btn-primary btn-lg">Register</a>
-        <a href="/users/sign-in" class="btn btn-outline-primary btn-lg">Sign In</a>
+        <% if(!currentUser) { %>
+          <a href="/users/register" class="btn btn-primary btn-lg">Register</a>
+          <a href="/users/sign-in" class="btn btn-outline-primary btn-lg">Sign In</a>
+        <% } %>        
       </header>
 
       <!-- Page Features -->

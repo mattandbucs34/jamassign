@@ -14,7 +14,7 @@
     <form action="/profile/create" method="POST">
       <div class="form-group">
         <label for="firstName">First Name:</label>
-        <input type="text" class="form-control" name="firstName" aria-describedby="firstNameHelp" placeholder="First Name">
+        <input type="text" class="form-control" name="firstName" aria-describedby="firstNameHelp" placeholder="First Name" required>
       </div>
       <div class="form-group">
         <label for="midInitial">Middle Initial:</label>
@@ -22,11 +22,11 @@
       </div>
       <div class="form-group">
         <label for="lastName">Last Name:</label>
-        <input type="text" class="form-control" name="lastName" aria-describedby="firstNameHelp" placeholder="Last Name">
+        <input type="text" class="form-control" name="lastName" aria-describedby="firstNameHelp" placeholder="Last Name" required>
       </div>
       <div class="form-group">
         <label for="address1">Address 1:</label>
-        <input type="text"class="form-control" name="address1" aria-describedby="address1Help" placeholder="Street Address">
+        <input type="text"class="form-control" name="address1" aria-describedby="address1Help" placeholder="Street Address" required>
       </div>
       <div class="form-group">
         <label for="address2">Address 2:<small class="text-muted">(optional)</small></label>
@@ -34,11 +34,11 @@
       </div>
       <div class="form-group">
         <label for="city">City:</label>
-        <input type="text" class="form-control" name="city" aria-describedby="cityHelp" placeholder="Enter City">
+        <input type="text" class="form-control" name="city" aria-describedby="cityHelp" placeholder="Enter City" required>
       </div>
       <div class="form-group">
         <label for="userState">State:</label>
-        <select name="userState" id="userState" class="form-control" aria-describedby="State">
+        <select name="userState" id="userState" class="form-control" aria-describedby="State" required>
             <option value="AL">AL</option>
             <option value="AK">AK</option>
             <option value="AR">AR</option>	
@@ -94,11 +94,11 @@
       </div>
       <div class="form-group">
         <label for="zipCode">Zip:</label>
-        <input type="number" class="form-control" name="zipCode" pattern="\d{5}([\-]\d{4})?" aria-describedby="Zip Code" placeholder="#####">
+        <input type="number" class="form-control" name="zipCode" pattern="\d{5}([\-]\d{4})?" aria-describedby="Zip Code" placeholder="#####" required>
       </div>
       <div class="form-group">
         <label for="homeNumber">Home Phone:</label>
-        <input type="tel" class="form-control" name="homeNumber" pattern="[0-9{3}-[0-9]{3}-[0-9]{4}" aria-describedby="Home Phone">
+        <input type="tel" class="form-control" name="homeNumber" pattern="[0-9{3}-[0-9]{3}-[0-9]{4}" aria-describedby="Home Phone" required>
       </div>
       <div class="form-group">
         <label for="mobileNumber">Mobile Phone:</label>
