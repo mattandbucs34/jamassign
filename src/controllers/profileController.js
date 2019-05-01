@@ -1,4 +1,4 @@
-const profileQueries = require("../db/queries/profile-queries");
+const profileQueries = require("../db/queries/profile-queries.js");
 const Authorizer = require("../policies/application");
 module.exports = {
   new(req, res, next) {
@@ -27,7 +27,6 @@ module.exports = {
       mobilephone: req.body.mobileNumber,
       userId: req.user.id
     }
-
     profileQueries.create(userProfile, (err, profile) => {
       if(err) {
         req.flash("error", err);
