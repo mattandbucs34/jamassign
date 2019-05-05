@@ -52,4 +52,38 @@ describe("routes : users", () => {
       });
     });
   });
+
+  describe("admin users performing CRUD operations", () => {
+    beforeEach((done) => {
+      User.create({
+        username: "scoobyrules",
+        email: "scooby@mysterymachine.com",
+        password: "nunya4242",
+        role: "admin"
+      })
+      .then((user) => {
+        request.get({
+          url: "http://localhost:3000/auth/fake",
+          form: {
+            username: user.username,
+            email: user.email,
+            userId: user.id
+          }
+        }, (err, res, body) => {
+          done();
+        });
+      });
+    });
+
+    describe("GET /users", () => {
+      it("should show a list of all users", (done) => {
+        request.get(base, (err, res, body) => {
+          expect(res.statusCode).toBe(200);
+          expect(err).toBeNull();
+          expect(body).toContain("Registered Users");
+          done();
+        });
+      });
+    });
+  });
 });

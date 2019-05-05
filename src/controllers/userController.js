@@ -1,5 +1,6 @@
 const userQueries = require("../db/queries/user-queries");
 const passport = require("passport");
+const Authorizer = require("../policies/userPolicy");
 //const sendMail = require("@sendgrid/mail");
 
 
@@ -50,5 +51,13 @@ module.exports = {
     req.logout();
     req.flash("success", "You have been logged out");
     res.redirect("/");
+  },
+  
+  show(req, res, next) {
+    
+  },
+  
+  changeRole(req, updatedUser, next) {
+    
   }
 }

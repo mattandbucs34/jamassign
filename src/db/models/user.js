@@ -17,6 +17,11 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    role: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "official"
     }
   }, {});
   User.associate = function(models) {
@@ -26,5 +31,14 @@ module.exports = (sequelize, DataTypes) => {
       as: "profile"
     });
   };
+
+  User.prototype.isAdmin = () => {
+    return this.role = "admin";
+  };
+
+  User.prototype.isCoordinator = () => {
+    return this.role = "coordinator";
+  };
+  
   return User;
 };
