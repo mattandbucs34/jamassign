@@ -4,6 +4,7 @@ module.exports = {
     const userRoutes = require("../routes/user-routes");
     const profileRoutes = require("../routes/profile-routes");
     const announceRoutes = require("../routes/announce-routes");
+    const calendarRoutes = require("../routes/calendar-routes");
    
     if(process.env.NODE_ENV === "test") {
       const mockAuth = require("../../spec/support/mock-auth.js");
@@ -14,5 +15,6 @@ module.exports = {
     app.use(userRoutes);
     app.use(profileRoutes);
     app.use(announceRoutes);
+    app.use(calendarRoutes);
   }
 }

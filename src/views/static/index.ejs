@@ -2,6 +2,28 @@
 <html lang="en">
   <head>
     <% include ./partials/head.ejs %>
+    <script src="https://fullcalendar.io/releases/core/4.1.0/main.min.js"></script>
+    <script src="https://fullcalendar.io/releases/interaction/4.1.0/main.min.js"></script>
+    <script src="https://fullcalendar.io/releases/daygrid/4.1.0/main.min.js"></script>
+    <script src="https://fullcalendar.io/releases/timegrid/4.1.0/main.min.js"></script>
+    <link rel="stylesheet" href="https://fullcalendar.io/releases/core/4.1.0/main.min.css" />
+    <link rel="stylesheet" href="https://fullcalendar.io/releases/daygrid/4.1.0/main.min.css" />
+    <link rel="stylesheet" href="https://fullcalendar.io/releases/timegrid/4.1.0/main.min.css" />
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function() {
+          var calendarEl = document.getElementById('calendar');
+  
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+            plugins: ['interaction', 'dayGrid' ],
+            defaultView: 'dayGridMonth',
+            selectable: true
+          });
+  
+          calendar.render();
+        });
+  
+      </script>
   </head>
   <body>
 
@@ -39,8 +61,28 @@
         </section>
 
       </section>
+      <div id="calendar"></div>
+      <div class="card">
+        <h3 class="card-header" id="monthAndYear"></h3>
+        <table class="table table-bordered table-responsive-md table-responsive-sm" id="calendar">
+          <thead>
+            <tr>
+              <th>Sun</th>
+              <th>Mon</th>
+              <th>Tues</th>
+              <th>Wed</th>
+              <th>Thurs</th>
+              <th>Fri</th>
+              <th>Sat</th>
+            </tr>
+          </thead>
+          <tbody id="calendar-body"></tbody>
+        </table>
+      </div>
+
+      <div id="calendar"></div>
       <!-- end of row-->
-      
+      <% include ./partials/calendar.ejs %>
     </main>
     <!-- end of container -->
 
