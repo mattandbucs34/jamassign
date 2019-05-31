@@ -16,7 +16,22 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
           plugins: ['interaction', 'dayGrid' ],
           defaultView: 'dayGridMonth',
-          selectable: true
+          header: {
+            left: 'prev today',
+            center: 'title',
+            right: 'next'
+          },
+          contentHeight: 450,  
+          selectable: true,
+          dateClick: (info) => {
+            console.log(info.dateStr);
+            calendar.addEvent({
+              title: 'dynamic event',
+              start: info.dateStr,
+              allDay: true
+            }),
+            document.getElementById('official-list').innerHTML = "I am inside!!!";
+          }
         });
 
         calendar.render();
@@ -31,7 +46,20 @@
 
     <!-- Page Content -->
     <main class="container">
-      <div id="calendar"></div>
+      <div class="row">
+        <div class="col-md-6 col-sm-4">
+          <div id="calendar" ></div>
+        </div>
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+          <div id="official-list">
+        </div>
+      </div>
+      
+      
+
+      </div>
 
       
       <!-- end of row-->

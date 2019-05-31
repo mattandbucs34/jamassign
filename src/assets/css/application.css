@@ -3,7 +3,7 @@
 body {
   padding-top: 54px;
   padding-bottom: 50px;
-  background-image: url("../stabilized_burma_red_infield_mix1.jpeg");
+  background-color: antiquewhite;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;  
@@ -75,6 +75,22 @@ footer {
 
 .footer-text {
   color: rgba(255,255,255,.5);
+}
+
+/* school form */
+
+.school-form {
+  background-color: whitesmoke;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/* calendar */
+#calendar {
+  margin: 20px auto 0 auto;
+  background-color: whitesmoke;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 /*Media Queries */
